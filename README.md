@@ -56,7 +56,7 @@ JS: mm. express, express-fileupload, child_process, bcryptjs, cookie-parser, mon
 
 Python: mm. pyPDF2
 
-### Video 
+### Video toiminnasta 
 
 ![video](test.mov)
 
