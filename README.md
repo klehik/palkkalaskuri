@@ -3,6 +3,7 @@
 ## Laskuri työaikalisien laskemiseen 
 
 Laskuri löytyy osoitteesta http://laskuri7000.herokuapp.com
+
 Lataa testitiedosto oikeasta yläkulmasta
 
 ### Taustaa
@@ -10,6 +11,7 @@ Työskentelen ensihoitajana ja käyn insinööriopintoja työn ohessa. Työ on v
 
 
 ![Kuva toteumasta](toteuma.png)
+Esimerkki toteumasta
 
 
 ### Sovellus
