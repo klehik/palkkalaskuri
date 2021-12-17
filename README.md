@@ -11,6 +11,7 @@ Työskentelen ensihoitajana ja käyn insinööriopintoja työn ohessa. Työ on v
 
 
 ![Kuva toteumasta](toteuma.png)
+
 Esimerkki toteumasta
 
 
@@ -20,11 +21,6 @@ Sovellus lukee pdf-muotoisen toteutuneen työvuorotaulukon ja palauttaa maksetta
 
 ![kuva pääsivusta](main.png)
 
-
-Asiakaspuolella käytetty Vanilla JavaScriptia ja palvelinpuolella Nodea ja Expressia. PDF:n käsittelyyn on käytetty Pythonia ja PyPDF2-kirjastoa. Tietokantana toimii MongoDB:n pilvipalvelu.
-Kirjastot
-JS: express, express-fileupload, child_process, bcryptjs ,cookie-parser, mongoose
-Python: pyPDF2
 
 ### Tiedoston lataus
 Tiedosto ladataan drag & dropilla tai selaamalla käyttäjän koneelta. Kun tiedosto on valittu, kysytään tuntipalkka ja veroprosentti, mikäli käyttäjä ei ole rekisteröitynyt ja tallentanut tietoja omiin asetuksiin. Tiedosto ja palkkatiedot lähetetään palvelimelle HTTP-pyyntönä (POST). Client-puolella validoidaan tiedostomuoto ja käyttäjän antamat syötteet ennen lähetystä. Ladattu tiedosto tallennetaan palvelimelle ja käynnistetään aliprosessi, jossa ajetaan pdf-tiedoston lukeva Python-skripti(tyko.py). Ohjelma palauttaa halutut oleelliset tiedot pdf-dokumentista JSON-muodossa. Skripti tarkistaa myös onko PDF-tiedosto toteuma hakemalla tiedostosta avainsanaa, joka löytyy jokaisesta toteumasta.  Tiedoston lukemiseen on käytetty Pythonia, koska en löytänyt JavaScriptille sopivaa kirjastoa tekstin poimimiseen PDF-tiedostosta.
@@ -48,5 +44,15 @@ Käyttäjä syöttää käyttäjänimen ja salasanan, jotka lähetetään palvel
 Käyttäjän autentikointi ei myöskään ollut tämän kurssin oppimistavoitteissa. Jatkossa sovelluksesta voisi tehdä tietoturvallisemman esimerkiksi PassPort-kirjastoa tai session-cookieita käyttämällä.
 
 ### Asetukset
-Kirjautuneena käyttäjä voi nähdä ja muuttaa palkkatietoja asetuksista. Palkkatiedot ladataan asetukset-valikkoon evästeistä.  Käyttäjän tallettaessa muutokset, ne päivitetään tietokantaan ja evästeisiin.  
+Kirjautuneena käyttäjä voi nähdä ja muuttaa palkkatietoja asetuksista. Palkkatiedot ladataan asetukset-valikkoon evästeistä.  Käyttäjän tallettaessa muutokset, ne päivitetään tietokantaan ja evästeisiin. 
+
+### Ohjelmointi
+
+Asiakaspuolella käytetty Vanilla JavaScriptia ja palvelinpuolella Nodea ja Expressia. PDF:n käsittelyyn on käytetty Pythonia ja PyPDF2-kirjastoa. Tietokantana toimii MongoDB:n pilvipalvelu.
+
+Käytetyt kirjastot:
+
+JS: mm. express, express-fileupload, child_process, bcryptjs, cookie-parser, mongoose
+
+Python: mm. pyPDF2
 
