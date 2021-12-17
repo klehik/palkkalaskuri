@@ -7,12 +7,12 @@ Laskuri löytyy osoitteesta http://laskuri7000.herokuapp.com
 Lataa testitiedosto oikeasta yläkulmasta
 
 ### Taustaa
-Työskentelen ensihoitajana ja käyn insinööriopintoja työn ohessa. Työ on vuorotyötä ja työaikalisiä maksetaan epäsäännöllisesti. Syntyi ajatus laskurista, jolla voisi kätevästi laskea työaikalisistä kertyneen palkan. Työnantajani lähettää sähköpostiin pdf-muotoisen toteutuneen työvuorotaulukon, ns. toteuman, jossa on aina kolmen viikon toteutuneet vuorot. Itse palkkalaskelma tulee kuitenkin vasta hieman ennen palkanmaksupäivää, joten laskurilla voi laskea palkkatiedot tarkasti ennen palkkalaskelman saapumista. 
+Työskentelen ensihoitajana ja käyn insinööriopintoja työn ohessa. Työ on vuorotyötä ja työaikalisiä maksetaan epäsäännöllisesti. Syntyi ajatus laskurista, jolla voisi kätevästi laskea työaikalisistä kertyneen palkan. Työnantajani lähettää sähköpostiin pdf-muotoisen toteutuneen työvuorotaulukon, ns. toteuman, jossa on aina kolmen viikon toteutuneet vuorot. Itse palkkalaskelma tulee kuitenkin vasta hieman ennen palkanmaksupäivää, joten laskurilla voi laskea palkkatiedot tarkasti ennen palkkalaskelman saapumista. Alla on esimerkki toteumasta.
 
 
 ![Kuva toteumasta](toteuma.png)
 
-Esimerkki toteumasta
+
 
 
 ### Sovellus
@@ -55,4 +55,7 @@ Käytetyt kirjastot:
 JS: mm. express, express-fileupload, child_process, bcryptjs, cookie-parser, mongoose
 
 Python: mm. pyPDF2
+
+
+![video](test.mov)
 
