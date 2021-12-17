@@ -27,7 +27,7 @@ Tiedosto ladataan drag & dropilla tai selaamalla käyttäjän koneelta. Kun tied
 
 
 ### Laskelma
-Palvelimelta palautetaan tiedot toteumasta JSON-muodossa. JSON-objekti syötetään laskurille, joka tekee laskutoimitukset palkkalaskelmaa varten. Laskuri palauttaa palkkalaskelman JSON-muodossa pääohjelmalle, joka näyttää tulokset käyttäjälle. Jos PDF-tiedosto ei ollut toteuma, siitä ilmoitetaan myös käyttäjälle.
+Palvelimelta palautetaan tiedot toteumasta JSON-muodossa. JSON-objekti syötetään laskurille, joka tekee laskutoimitukset palkkalaskelmaa varten. Laskuri palauttaa palkkalaskelman JSON-muodossa pääohjelmalle, joka näyttää tulokset käyttäjälle. Jos PDF-tiedosto ei ollut toteuma, siitä ilmoitetaan myös käyttäjälle. Tietokantaan päivitetään tehtyjen laskelmien kokonaislukumäärä(+1).
 
 
 ![kuva laskelmasta](laskelma.png)
@@ -56,6 +56,7 @@ JS: mm. express, express-fileupload, child_process, bcryptjs, cookie-parser, mon
 
 Python: mm. pyPDF2
 
+### Video toiminnasta 
 
 ![video](test.mov)
 
