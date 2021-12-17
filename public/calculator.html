@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<title>Laskuri 7000</title>
+<meta charset="utf-8">
+<script src="main.js"></script>
+<script src="utility.js"></script>
+<script src="calculate.js"></script>
+<link rel="stylesheet" href="styles.css">
+
+
+<style>
+
+</style>
+</head>
+
+<body onload="init()">
+
+  <!-- Navbar -->
+  <div id="navcontainer">
+    <ul id="navlist">
+      <li><a href="/">Laskuri7000</a></li>
+
+      <a class="nav-right-links" id="login" href="/login">
+        Kirjaudu
+      </a>
+    
+    </ul>
+  </div>
+  <a class="nav-right-links" id="dl" download href="testitoteuma.pdf">
+    Lataa testitiedosto
+  </a>
+
+  <div id="container">
+    <div id="divToDrop" class="divToDrop" ondragover="(allowDrop(event))" >
+   
+      <img id="uploadIcon" class="icon" src="upload-128.png">
+      
+      <header>Pudota toteuma tähän</header>
+      <span>tai</span>
+      
+      <button id="uploadButton">Selaa</button>
+      <input id="uploadFile" type="file" hidden>
+      <div id="errorField"></div>
+    
+  </div>   
+
+
+</body>
+<script>
+   
+
+</script>
+</html>

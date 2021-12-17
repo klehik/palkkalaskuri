@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<title>Laskuri 7000</title>
+<meta charset="utf-8">
+<script src="utility.js"></script>
+<link rel="stylesheet" type="text/css" href="/styles.css">
+
+
+<style>
+
+</style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div id="navcontainer">
+    <ul id="navlist">
+    <li><a href="/">Laskuri7000</a></li>
+    
+    </ul>
+  </div>
+    
+    <div id="loginContainer">
+      <form id="signupForm" action="/signup">  
+        <div id="errorField"></div>
+      
+        <label for="uname"><b>Käyttäjänimi</b></label>
+        <input  type="text" placeholder="Syötä käyttäjänimi" name="username" required>
+    
+        <label for="psw"><b>Salasana</b></label>
+        <input  type="password" placeholder="Syötä salasana" name="password" required>
+
+        <label for="wage"><b>Tuntipalkka</b></label>
+        <input type="number" placeholder="Syötä tuntipalkka" name="wage"  required>
+
+        <label for="tax"><b>Veroprosentti</b></label>
+        <input type="number" placeholder="Syötä veroprosenttisi" name="tax"  required>
+
+        <div>
+        <button type="submit" >Rekisteröidy</button>
+        <a href="/">Jatka rekisteröitymättä</a>
+
+      </form> 
+    </div>       
+</body>
+
+<script>
+
+      
+      document.getElementById('signupForm').onsubmit = (event) => {
+      event.preventDefault();
+      // TODO do something here to show user that form is being submitted
+      fetch('/signup', {
+          method: 'POST',
+          body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      })
+      .then(response =>  response.json()
+      .then(json =>{
+        if (json.status === 200){
+          window.location.href = '/login'
+        }else{
+          showError(json.message)
+        }
+      })
+        
+      ).catch((error) => {
+         
+      });
+};
+</script>
+
+</html>

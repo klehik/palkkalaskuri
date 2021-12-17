@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<title>Laskuri 7000</title>
+<meta charset="utf-8">
+<script src="utility.js"></script>
+<link rel="stylesheet" type="text/css" href="/styles.css">
+
+
+<style>
+
+</style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div id="navcontainer">
+    <ul id="navlist">
+      <li><a href="/">Laskuri7000</a></li>
+    </ul>
+  </div>
+    <div id="loginContainer">
+      <div id="errorField"></div>
+        <form id="loginForm">
+              <label for="username"><b>Käyttäjänimi</b></label>
+              <input type="text" placeholder="Syötä käyttäjänimi" name="username" required>
+          
+              <label for="password"><b>Salasana</b></label>
+              <input type="password" placeholder="Syötä salasana" name="password" required>
+              <div>
+              <button type="submit" onsubmit="submit()">Kirjaudu</button>
+              
+            </div>
+              <div class="container">
+              <a style="text-decoration: underline;" href="/signup">Rekisteröidy tästä</a>
+              <a style="text-decoration: underline;" href="/">Jatka kirjautumatta</a>
+              </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+      document.getElementById('loginForm').onsubmit = (event) => {
+      event.preventDefault();
+      
+      fetch('/login', {
+          method: 'POST',
+          body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      })
+      .then(response =>  response.json()
+      .then(json =>{
+        if (json.status === 200){
+          window.location.href = '/logged'
+        }else{
+          showError(json.message)
+        }
+      })
+        
+      ).catch((error) => {
+         
+      });
+}; 
+</script>
+</html>

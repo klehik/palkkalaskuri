@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<title>Laskuri 7000</title>
+<meta charset="utf-8">
+<script src="utility.js"></script>
+<link rel="stylesheet" type="text/css" href="/styles.css">
+
+
+<style>
+
+</style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div id="navcontainer">
+    <ul id="navlist">
+        <li><a href="/">Laskuri7000</a></li>
+    <a class="nav-right-links" id="login" href="/login">
+        Kirjaudu
+        </a>
+    </ul>
+    
+  </div>
+    
+    <div id="loginContainer"> 
+        <form id="settingsForm" action="/settings">  
+            
+            <div id="errorField"></div>
+        
+
+            <label for="wage"><b>Tuntipalkka</b></label>
+            <input id="wage" type="number" placeholder="Syötä tuntipalkka" name="wage" step=any required>
+
+            <label for="tax"><b>Veroprosentti</b></label>
+            <input id="tax" type="number" placeholder="Syötä veroprosenttisi" name="tax" step=any required>
+
+            <div>
+            <button type="submit" >Tallenna</button>
+            
+            <a style="text-decoration: underline;" href="/">Peruuta</a>
+
+        </form> 
+    </div>
+</body>
+
+<script>
+
+    // check if cookies have username stored
+    let username = getCookie('username')
+    
+    // if user has logged in render user element to navbar
+    if (username){
+        loggedIn = true
+        
+        let log = document.getElementById("login")
+        let parent = log.parentNode 
+        parent.removeChild(log)
+        let a = document.createElement('a')
+        a.setAttribute('class', 'nav-right-links')
+        a.setAttribute('id', 'login')
+
+        let dropdownHtml = `<div class="dropdown">
+                            <div class="dropbtn">
+                                <img id="userIcon" class="icon" src="user.png"</img>
+                                ${username} 
+      
+                            </div>
+                            <div class="dropdown-content">
+                                <a href="/settings">Asetukset</a>
+                                <a href='/logout'>Kirjaudu ulos</a>
+                                
+                            </div>
+                        </div> `
+        a.innerHTML = dropdownHtml
+        parent.appendChild(a)   
+  }
+
+    let wageField = document.getElementById('wage')
+    let taxField = document.getElementById('tax')
+
+    wageField.value = getCookie('wage')
+    taxField.value = getCookie('tax')
+      
+    
+      
+      document.getElementById('settingsForm').onsubmit = (event) => {
+      event.preventDefault();
+      
+      fetch('/settings', {
+          method: 'POST',
+          body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      })
+      .then(response =>  response.json()
+      .then(json =>{
+        if (json.status === 200){
+          window.location.href = '/'
+        }else{
+          showError(json.message)
+        }
+      })
+        
+      ).catch((error) => {
+         
+      });
+};
+</script>
