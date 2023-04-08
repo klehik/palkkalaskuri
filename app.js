@@ -187,4 +187,9 @@ app.get('/logout', (req, res) => {
   res.redirect('/')
 })
 
-app.listen(process.env.PORT || 5000)
+const PORT = 8080;
+const HOST = '0.0.0.0';
+
+app.listen(PORT, HOST, ()=>{
+  console.log(HOST, PORT)
+})
