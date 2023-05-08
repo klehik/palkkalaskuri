@@ -32,8 +32,6 @@ Palvelimelta palautetaan tiedot toteumasta JSON-muodossa. JSON-objekti syötetä
 
 Käyttäjä voi halutessaan rekisteröityä palveluun, joten palkkatietoja ei tarvitse syöttää erikseen jokaisen laskelman yhteydessä. Rekisteröitymisessä käyttäjä valitsee käyttäjänimen ja salasanan sekä syöttää tuntipalkan ja veroprosentin. Käyttäjätiedot lähetetään palvelimelle, joka tallentaa ne MongoDB-tietokantaan. Palvelin tarkistaa tietokannasta, ettei käyttäjänimi ole jo käytössä. Salasana salataan bcryptjs-kirjaston avulla, joka muuntaa salasanan hash-muotoon. Salasanaan lisätään myös salt-merkkijono, jotta tallennettavista hash-salasanoista tulee uniikkeja, vaikka kahdella eri käyttäjällä olisi sama salasana.
 
-![Kuva mongoDB](mongo.png)
-
 ### Kirjautuminen
 
 Käyttäjä syöttää käyttäjänimen ja salasanan, jotka lähetetään palvelimelle. Palvelin tarkistaa löytyykö tietokannasta syötettyä käyttäjänimeä. Jos käyttäjä löytyy, salasanoja verrataan bcryptjs-kirjaston avulla. Jos salasanat täsmäävät palvelin lähettää asiakaspuolelle evästeen, joka sisältää käyttäjänimen, tuntipalkan ja veroprosentin. Nämä tiedot kulkevat mukana kaikkialla asiakaspuolella. Tämä ratkaisu oli helppo, mutta ei ole kovin tietoturvallinen, koska selaimen konsolista pystyy muutamaan cookien arvoja. Joten käyttäjänimen tietämällä pääsisi ns. kirjautumaan käyttäjänä sisään ja muuttamaan käyttäjän palkkatietoja asetuksista. Käyttäjän palkkatietoja ei kuitenkaan näkisi tietokannasta, koska ne ladataan evästeeseen kirjautumisen yhteydessä ja ne tuhotaan uloskirjautumisen yhteydessä. Palvelussa ei myöskään voi vaihtaa tai nähdä salasanaa.
@@ -52,7 +50,3 @@ Käytetyt kirjastot:
 JS: mm. express, express-fileupload, child_process, bcryptjs, cookie-parser, mongoose
 
 Python: mm. pyPDF2
-
-### Video toiminnasta
-
-![video](test.mov)
